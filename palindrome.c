@@ -13,7 +13,7 @@ void main()
         n=n/10;
     }
     if(x==sum)
-     printf("no. is palindrome");
+     printf("TRUE");
     else
-     printf("not a palindrome");
+     printf("FALSE");
 }
