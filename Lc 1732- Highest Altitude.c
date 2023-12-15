@@ -2,7 +2,7 @@
 #include<stdio.h>
 void main()
 {
-    int a[1001],i,n,l ;
+    int a[1001],i,n,l=0,sum=0 ;
     printf("Enter the total no. of Atitudes:");
     scanf("%d",&n);
     for(i=0;i<n;i++)
@@ -10,12 +10,12 @@ void main()
         printf("Enter the Altitude %d:",i+1);
         scanf("%d",&a[i]);
     }
-    l=a[0];
     for(i=0;i<n;i++)
     {
-        if (l<a[i])
+        sum=sum+a[i];
+        if (l<sum)
         {
-            l=a[i];
+            l=sum;
         }
     }
     printf("Highest Altitude is %d",l);
