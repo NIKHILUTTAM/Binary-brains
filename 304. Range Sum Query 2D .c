@@ -2,7 +2,7 @@
 #include<stdio.h>
 void main()
 {
-    int a[10][10],i,j,r,c,r1,r2,c1,c2,sum=0;
+    int a[10][10],i,j,r,c,r1,r2,c1,c2,sum=0,p[100][100];
     printf("enter the total no. of rows and column:-\n");
     printf("row:");
     scanf("%d",&r);
@@ -36,13 +36,30 @@ void main()
     scanf("%d",&r2);
     printf("column:");
     scanf("%d",&c2);
-    for(i=r1;i<=r2;i++)
+    for(i=0;i<=r;i++)
     {
-        for(j=c1;j<=c2;j++)
+        p[i][0]=0;
+    }
+    for(j=1;j<=c;j++)
+    {
+        p[0][j]=0;
+    }
+    for(i=1;i<=r;i++)
+    {
+        for(j=1;j<=c;j++)
         {
-            sum=sum+a[i][j];
+        p[i][j]=a[i-1][j-1]+p[i-1][j]+p[i][j-1]-p[i-1][j-1];
         }
     }
+    sum = p[r2+1][c2+1]-p[r2+1][c1]-p[r1][c2+1]+p[r1][c1];
+    //or without using prifix sum:-
+    // for(i=r1;i<=r2;i++)
+    // {
+    //     for(j=c1;j<=c2;j++)
+    //     {
+    //         sum=sum+a[i][j];
+    //     }
+    // }
     printf("sum is %d",sum);
     getch();
 }
